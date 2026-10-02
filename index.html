@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4EEDC">
+  <title>Mukesh Karthik M · Web and game developer</title>
+  <meta name="description" content="Portfolio of M Mukesh Karthik, a Computer Science student building web apps, AI tools, and games.">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        var metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#15150F' : '#F4EEDC');
+      } catch(e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=DM+Sans:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="corner-avatar" href="#home" aria-label="Mukesh Karthik, back to top">
+    <img src="images/avatar.jpg" alt="" width="48" height="48" decoding="async">
+  </a>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="nav glass" aria-label="Main">
+    <a href="#home" class="is-active">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+      <span class="theme-toggle__track">
+        <span class="theme-toggle__thumb">
+          <!-- Sun icon for light mode -->
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon icon for dark mode -->
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+      </span>
+      <span class="theme-toggle__label">Light</span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section section--home hero">
+      <div class="container container--hero">
+        <div class="hero__inner">
+          <div class="hero__text">
+            <h1 class="hero__name reveal">Mukesh<span>Karthik M</span></h1>
+            <p class="hero__role reveal">Computer Science student · Web &amp; AI developer · Game developer</p>
+            <p class="hero__tagline reveal">I build web apps, finance tools with AI behind them, and games. I like making things that still work when a stranger sits down and actually uses them.</p>
+            <ul class="badges reveal">
+              <li class="badge glass badge--live">Available for projects</li>
+              <li class="badge glass">Grade 12 · CS Student</li>
+              <li class="badge glass">Web &amp; Game Developer</li>
+            </ul>
+            <div class="actions reveal">
+              <a class="btn btn--primary" href="#projects">View projects</a>
+              <a class="btn btn--glass" href="#contact">Contact me</a>
+            </div>
+          </div>
+          <figure class="photo glass reveal">
+            <img src="images/mukesh.jpg" alt="Portrait of M Mukesh Karthik in a black shirt, outdoors"
+                 width="1080" height="720" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section--projects">
+      <div class="container">
+        <h2 class="section__title reveal">Projects</h2>
+        <div class="projects">
+          <article class="card glass tilt-left reveal">
+            <span class="pill">LIVE</span>
+            <h3 class="card__title">Portfolio</h3>
+            <p>A responsive personal site for showing my web projects, skills, and experience. Clean on purpose, with small interactions that make it feel lived-in on any screen size.</p>
+            <ul class="chips">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Web App</li>
+            </ul>
+          </article>
+          <aside class="card glass tilt-right count reveal">
+            <b>4</b>
+            <span>projects planned. 1 is live, 3 are coming soon.</span>
+          </aside>
+        </div>
+
+        <p class="projects__upcoming-title reveal">Coming soon: three ideas on the way.</p>
+
+        <!-- Note: the 3 coming soon ideas below are placeholders to replace with real plans -->
+        <ul class="projects__upcoming">
+          <li class="card glass card--coming tilt-left reveal">
+            <span class="pill pill--coming">Coming soon</span>
+            <h3 class="card__title">AI finance tracker</h3>
+            <p>An app that looks at your spending and explains where the money went, in plain words.</p>
+            <ul class="chips">
+              <li>Web</li><li>AI</li>
+            </ul>
+          </li>
+          <li class="card glass card--coming tilt-right reveal">
+            <span class="pill pill--coming">Coming soon</span>
+            <h3 class="card__title">A small Godot game</h3>
+            <p>One simple mechanic, polished until it feels good to play.</p>
+            <ul class="chips">
+              <li>Godot</li><li>GDScript</li>
+            </ul>
+          </li>
+          <li class="card glass card--coming tilt-left reveal">
+            <span class="pill pill--coming">Coming soon</span>
+            <h3 class="card__title">A data and ML experiment</h3>
+            <p>A Python project that learns from real data, with each step explained so I know why it works.</p>
+            <ul class="chips">
+              <li>Python</li><li>Data analysis</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section--skills">
+      <div class="container">
+        <h2 class="section__title reveal">Skills</h2>
+        <p class="skills__intro reveal">Tap a card to see what's inside.</p>
+        <div class="skills__legend reveal">
+          <span class="chip chip--comfortable">Comfortable</span>
+          <span class="chip chip--learning">Learning</span>
+        </div>
+
+      <div class="skills">
+        <!-- Note: data-level values below are starting placeholders to edit -->
+        <article class="card glass skill-card reveal" data-level="75" data-note="">
+          <div class="skill-card__header">
+            <h3 class="card__title">Frontend development</h3>
+            <span class="chip chip--comfortable">Comfortable</span>
+          </div>
+          <div class="level-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Frontend development level">
+            <div class="level-bar__labels">
+              <span class="level-bar__title">Level</span>
+              <span class="level-bar__pct">75%</span>
+            </div>
+            <div class="level-bar__track">
+              <div class="level-bar__fill"></div>
+            </div>
+          </div>
+          <button type="button" class="skill-card__toggle" aria-expanded="false" aria-controls="skill-details-frontend">
+            <span>Show details</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="skill-details-frontend" class="skill-card__drawer">
+            <div class="skill-card__drawer-inner">
+              <ul class="skill-list"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive design</li></ul>
+              <p class="skill-card__note"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card glass skill-card reveal" data-level="35" data-note="">
+          <div class="skill-card__header">
+            <h3 class="card__title">Backend &amp; programming</h3>
+            <span class="chip chip--learning">Learning</span>
+          </div>
+          <div class="level-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Backend and programming level">
+            <div class="level-bar__labels">
+              <span class="level-bar__title">Level</span>
+              <span class="level-bar__pct">35%</span>
+            </div>
+            <div class="level-bar__track">
+              <div class="level-bar__fill"></div>
+            </div>
+          </div>
+          <button type="button" class="skill-card__toggle" aria-expanded="false" aria-controls="skill-details-backend">
+            <span>Show details</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="skill-details-backend" class="skill-card__drawer">
+            <div class="skill-card__drawer-inner">
+              <ul class="skill-list"><li>Python</li><li>Data structures</li><li>Algorithms</li><li>OOP concepts</li></ul>
+              <p class="skill-card__note"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card glass skill-card reveal" data-level="25" data-note="">
+          <div class="skill-card__header">
+            <h3 class="card__title">AI &amp; machine learning</h3>
+            <span class="chip chip--learning">Learning</span>
+          </div>
+          <div class="level-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="AI and machine learning level">
+            <div class="level-bar__labels">
+              <span class="level-bar__title">Level</span>
+              <span class="level-bar__pct">25%</span>
+            </div>
+            <div class="level-bar__track">
+              <div class="level-bar__fill"></div>
+            </div>
+          </div>
+          <button type="button" class="skill-card__toggle" aria-expanded="false" aria-controls="skill-details-ai">
+            <span>Show details</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="skill-details-ai" class="skill-card__drawer">
+            <div class="skill-card__drawer-inner">
+              <ul class="skill-list"><li>ML basics</li><li>Data analysis</li><li>AI applications</li></ul>
+              <p class="skill-card__note"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card glass skill-card reveal" data-level="55" data-note="">
+          <div class="skill-card__header">
+            <h3 class="card__title">Game development</h3>
+            <span class="chip chip--comfortable">Comfortable</span>
+          </div>
+          <div class="level-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Game development level">
+            <div class="level-bar__labels">
+              <span class="level-bar__title">Level</span>
+              <span class="level-bar__pct">55%</span>
+            </div>
+            <div class="level-bar__track">
+              <div class="level-bar__fill"></div>
+            </div>
+          </div>
+          <button type="button" class="skill-card__toggle" aria-expanded="false" aria-controls="skill-details-game">
+            <span>Show details</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="skill-details-game" class="skill-card__drawer">
+            <div class="skill-card__drawer-inner">
+              <ul class="skill-list"><li>Godot Engine</li><li>GDScript</li><li>Game design</li></ul>
+              <p class="skill-card__note"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card glass skill-card reveal" data-level="65" data-note="">
+          <div class="skill-card__header">
+            <h3 class="card__title">Tools &amp; platforms</h3>
+            <span class="chip chip--comfortable">Comfortable</span>
+          </div>
+          <div class="level-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Tools and platforms level">
+            <div class="level-bar__labels">
+              <span class="level-bar__title">Level</span>
+              <span class="level-bar__pct">65%</span>
+            </div>
+            <div class="level-bar__track">
+              <div class="level-bar__fill"></div>
+            </div>
+          </div>
+          <button type="button" class="skill-card__toggle" aria-expanded="false" aria-controls="skill-details-tools">
+            <span>Show details</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="skill-details-tools" class="skill-card__drawer">
+            <div class="skill-card__drawer-inner">
+              <ul class="skill-list"><li>Git &amp; GitHub</li><li>VS Code</li><li>Terminal/CLI</li></ul>
+              <p class="skill-card__note"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card glass skill-card skill-card--learning-path reveal">
+          <h3 class="card__title">Currently learning</h3>
+          <ol class="journey-list">
+            <li class="journey-step">
+              <span class="journey-step__circle" aria-hidden="true">1</span>
+              <span class="journey-step__label">Advanced Python</span>
+              <span class="chip chip--progress">In progress</span>
+            </li>
+            <li class="journey-step">
+              <span class="journey-step__circle" aria-hidden="true">2</span>
+              <span class="journey-step__label">Web frameworks</span>
+              <span class="chip chip--progress">In progress</span>
+            </li>
+            <li class="journey-step">
+              <span class="journey-step__circle" aria-hidden="true">3</span>
+              <span class="journey-step__label">Database design</span>
+              <span class="chip chip--progress">In progress</span>
+            </li>
+          </ol>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section--about">
+      <div class="container">
+        <h2 class="section__title reveal">About</h2>
+        <div class="card glass about reveal">
+          <div class="about__text">
+            <p>I'm M Mukesh Karthik, a Computer Science student at Scaler School of Technology. I like building things for the web, and I'd rather understand a problem than copy a fix for it.</p>
+            <p>Right now I'm deep into Python and AI/ML, and tightening my grip on data structures and algorithms. Every project is a chance to try something I haven't done before.</p>
+          </div>
+          <p class="about__quote">Curiosity, clean code, and always asking "what's next?"</p>
+        </div>
+        <div class="stats">
+          <div class="card glass tilt-left reveal"><b>1</b><span>Project live (Portfolio), 3 coming soon</span></div>
+          <div class="card glass tilt-right reveal"><b>∞</b><span>To learn</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--contact">
+      <div class="container">
+        <div class="card glass contact reveal">
+          <h2 class="section__title">Let's build something good together.</h2>
+          <p><a class="contact__mail" href="mailto:Kingmukesh677@gmail.com">Kingmukesh677@gmail.com</a></p>
+          <form class="form" action="mailto:Kingmukesh677@gmail.com" method="post" enctype="text/plain">
+            <fieldset class="form__group">
+              <legend>Contact me</legend>
+              <div class="form__row">
+                <label for="name">Name<input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required></label>
+                <label for="email">Email<input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required></label>
+              </div>
+
+              <label for="message">Message<textarea id="message" name="message" rows="5" placeholder="Tell me what you have in mind" required></textarea></label>
+              <label class="form__check"><input type="checkbox" name="reply" value="yes"> Reply to me by email</label>
+              <div class="actions">
+                <button class="btn btn--primary" type="submit">Send message</button>
+                <button class="btn btn--glass" type="reset">Clear</button>
+              </div>
+            </fieldset>
+          </form>
+          <p class="contact__or">Or find me here:</p>
+          <div class="actions actions--center">
+            <a class="btn btn--primary" href="https://github.com/KINGMIK24" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn--glass" href="https://www.linkedin.com/in/mukesh-karthik-m-54b892364" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn--glass" href="https://www.instagram.com/mk_king_2410" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© M Mukesh Karthik</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
