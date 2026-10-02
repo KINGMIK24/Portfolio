@@ -9,8 +9,12 @@
     links.forEach(a => {
       const on = a.getAttribute('href') === `#${id}`;
       a.classList.toggle('is-active', on);
-      if (on) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
+      if (on) {
+        a.setAttribute('aria-current', 'true');
+        a.scrollIntoView({ inline: "center", block: "nearest" });
+      } else {
+        a.removeAttribute('aria-current');
+      }
     });
   };
 
