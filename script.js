@@ -5,17 +5,36 @@
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
 
+  /* FIX: scrolling - scroll-spy centers active link in pill without interrupting window smooth scroll */
+  let currentActiveId = null;
+  let isFirstLoad = true;
+
+  const centerNavLink = a => {
+    const nav = a.closest('.nav');
+    if (nav && nav.scrollWidth > nav.clientWidth) {
+      const targetLeft = a.offsetLeft - (nav.clientWidth / 2) + (a.offsetWidth / 2);
+      nav.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
+  };
+
   const setActive = id => {
+    if (!id || currentActiveId === id) return;
+    const changed = currentActiveId !== null;
+    currentActiveId = id;
+
     links.forEach(a => {
       const on = a.getAttribute('href') === `#${id}`;
       a.classList.toggle('is-active', on);
       if (on) {
         a.setAttribute('aria-current', 'true');
-        a.scrollIntoView({ inline: "center", block: "nearest" });
+        if (!isFirstLoad && changed) {
+          centerNavLink(a);
+        }
       } else {
         a.removeAttribute('aria-current');
       }
     });
+    isFirstLoad = false;
   };
 
   if (!('IntersectionObserver' in window)) return;
@@ -50,7 +69,7 @@
     // 1. Hero load sequence: name, role, tagline, badges, buttons
     const heroElements = document.querySelectorAll('.hero .reveal');
     heroElements.forEach((el, index) => {
-      el.style.setProperty('--delay', isPhone ? '0ms' : `${index * 150}ms`);
+      el.style.setProperty('--delay', isPhone ? '0ms' : `${index * 100}ms`);
     });
 
     // 2. Stagger sibling groups in grids/lists (desktop/tablet only)
@@ -60,7 +79,7 @@
       if (!container) return;
       const items = container.querySelectorAll('.reveal');
       items.forEach((item, index) => {
-        const delay = isPhone ? 0 : Math.min(index * 120, 480);
+        const delay = isPhone ? 0 : Math.min(index * 60, 180);
         item.style.setProperty('--delay', `${delay}ms`);
       });
     });
@@ -77,21 +96,18 @@
     setupDelays(isPhone);
 
     const observerConfig = isPhone
-      ? { threshold: 0.08, rootMargin: '0px 0px -4% 0px' }
-      : { threshold: 0.15, rootMargin: '0px 0px -8% 0px' };
+      ? { threshold: 0.05, rootMargin: '0px 0px 40px 0px' }
+      : { threshold: 0.08, rootMargin: '0px 0px 60px 0px' };
 
     currentObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
           obs.unobserve(entry.target);
-        } else {
+        } else if (isPhone && entry.boundingClientRect && entry.boundingClientRect.bottom < 0) {
           // If scrolled past fast on phone (element is already above viewport), reveal instantly
-          const rect = entry.target.getBoundingClientRect();
-          if (isPhone && rect.bottom < 0) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
         }
       });
     }, observerConfig);
